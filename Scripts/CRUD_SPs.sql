@@ -196,7 +196,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Create a choice record
 -- =============================================
-CREATE PROCEDURE SP_cChoice
+CREATE OR ALTER PROCEDURE SP_cChoice
 	@questionId int, 
 	@choiceText varchar(100)
 AS
@@ -209,7 +209,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Retrieve question's choices
 -- =============================================
-CREATE PROCEDURE SP_rChoices 
+CREATE OR ALTER PROCEDURE SP_rChoices 
 	@questionId int
 AS
 BEGIN
@@ -238,7 +238,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Delete a choice record
 -- =============================================
-CREATE PROCEDURE SP_dChoice 
+CREATE OR ALTER PROCEDURE SP_dChoice 
 	@questionId int, 
 	@choiceText varchar(100) 
 AS
@@ -251,7 +251,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Create a question record
 -- =============================================
-CREATE PROCEDURE SP_cQuestion
+CREATE OR ALTER PROCEDURE SP_cQuestion
 	@questionText varchar(100), 
 	@questionType varchar(50),
 	@questionAnswer varchar(100),
@@ -267,7 +267,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Retrieve a course's questions
 -- =============================================
-CREATE PROCEDURE SP_rQuestions
+CREATE OR ALTER PROCEDURE SP_rQuestions
 	@courseId int, 
 	@questionType varchar(50)
 AS
@@ -300,7 +300,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Delete a question record
 -- =============================================
-CREATE PROCEDURE SP_dQuestion 
+CREATE OR ALTER PROCEDURE SP_dQuestion 
 	@questionId int
 AS
 BEGIN
@@ -312,7 +312,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Create an examQuestion record
 -- =============================================
-CREATE PROCEDURE SP_cExamQuestion
+CREATE OR ALTER PROCEDURE SP_cExamQuestion
 	@examId int,
 	@questionId int,
 	@questionOrder int
@@ -326,7 +326,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Retrieve exam questions
 -- =============================================
-CREATE PROCEDURE SP_rExamQuestions
+CREATE OR ALTER PROCEDURE SP_rExamQuestions
 	@examId int
 AS
 BEGIN
@@ -341,7 +341,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Update an exam question
 -- =============================================
-CREATE PROCEDURE SP_uExamQuestion
+CREATE OR ALTER PROCEDURE SP_uExamQuestion
 	@examID int, 
 	@questionId int,
 	@questionOrder int
@@ -355,7 +355,7 @@ GO
 -- Create date: 28-1-2025
 -- Description:	Delete an exam question record
 -- =============================================
-CREATE PROCEDURE SP_dExamQuestion
+CREATE OR ALTER PROCEDURE SP_dExamQuestion
 	@examId int,
 	@questionId int
 AS
