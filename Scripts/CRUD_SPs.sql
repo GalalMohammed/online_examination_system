@@ -200,9 +200,12 @@ CREATE OR ALTER PROCEDURE SP_cChoice
 	@questionId int, 
 	@choiceText varchar(100)
 AS
-BEGIN
+BEGIN TRY
 	INSERT INTO Choice VALUES (@questionId, @choiceText);
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -212,12 +215,15 @@ GO
 CREATE OR ALTER PROCEDURE SP_rChoices 
 	@questionId int
 AS
-BEGIN
+BEGIN TRY
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 	SELECT Choice FROM Choice WHERE Question_Id=@questionId;
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -229,9 +235,12 @@ CREATE OR ALTER PROCEDURE SP_uChoice
 	@oldChoiceText varchar(100),
 	@newChoiceText varchar(100)
 AS
-BEGIN
+BEGIN TRY
 	UPDATE Choice SET Choice=@newChoiceText WHERE Question_Id=@questionId AND Choice=@oldChoiceText;
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -242,9 +251,12 @@ CREATE OR ALTER PROCEDURE SP_dChoice
 	@questionId int, 
 	@choiceText varchar(100) 
 AS
-BEGIN
+BEGIN TRY
 	DELETE FROM Choice WHERE Question_Id=@questionId AND Choice=@choiceText;
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -257,10 +269,13 @@ CREATE OR ALTER PROCEDURE SP_cQuestion
 	@questionAnswer varchar(100),
 	@courseId int
 AS
-BEGIN
+BEGIN TRY
 	IF @questionType='MCQ' OR @questionType='TF'
 		INSERT INTO Question(Text, Type, Answer, Course_Id) VALUES (@questionText, @questionType, @questionAnswer, @courseId);
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -271,12 +286,15 @@ CREATE OR ALTER PROCEDURE SP_rQuestions
 	@courseId int, 
 	@questionType varchar(50)
 AS
-BEGIN
+BEGIN TRY
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 	SELECT * FROM Question WHERE Course_Id=@courseId AND Type=@questionType;
-END
+END	TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -290,10 +308,13 @@ CREATE OR ALTER PROCEDURE SP_uQuestion
 	@questionAnswer varchar(100),
 	@courseId int
 AS
-BEGIN
+BEGIN TRY
 	IF @questionType='MCQ' OR @questionType='TF'
 		UPDATE Question SET Text=@questionText, Type=@questionType, Answer=@questionAnswer, Course_Id=@courseId WHERE Id=@questionId;
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -303,9 +324,12 @@ GO
 CREATE OR ALTER PROCEDURE SP_dQuestion 
 	@questionId int
 AS
-BEGIN
+BEGIN TRY
 	DELETE FROM Question WHERE Id=@questionId;
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -317,9 +341,12 @@ CREATE OR ALTER PROCEDURE SP_cExamQuestion
 	@questionId int,
 	@questionOrder int
 AS
-BEGIN
+BEGIN TRY
 	INSERT INTO ExamQuestion VALUES (@examId, @questionId, @questionOrder);
-END
+END TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -329,12 +356,15 @@ GO
 CREATE OR ALTER PROCEDURE SP_rExamQuestions
 	@examId int
 AS
-BEGIN
+BEGIN TRY
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 	SELECT Question_Id, Question_Order FROM ExamQuestion WHERE Exam_Id=@examId ORDER BY Question_Order;
-END
+END	TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -346,9 +376,12 @@ CREATE OR ALTER PROCEDURE SP_uExamQuestion
 	@questionId int,
 	@questionOrder int
 AS
-BEGIN
+BEGIN TRY
 	UPDATE ExamQuestion SET Question_Id=@questionId, Question_Order=@questionOrder WHERE Exam_Id=@examID AND Question_Id=@questionId;
-END
+END	TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
 -- =============================================
 -- Author:		GalalMohammed
@@ -359,7 +392,10 @@ CREATE OR ALTER PROCEDURE SP_dExamQuestion
 	@examId int,
 	@questionId int
 AS
-BEGIN
+BEGIN TRY
 	DELETE FROM ExamQuestion WHERE Exam_Id=@examId AND Question_Id=@questionId;
-END
+END	TRY
+BEGIN CATCH
+	SELECT ERROR_MESSAGE() AS ErrorMessage;
+END CATCH
 GO
