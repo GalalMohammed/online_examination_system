@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Galal\\Documents\\Courses\\ITI\\IDA\\Advanced Database\\Project\\online_examination_system\\examination_system\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFD69E4-BC90-4F0A-BDEA-D4D279961DE2}|examination_system\\examination_system.csproj|d:\\galal\\documents\\courses\\iti\\ida\\advanced database\\project\\online_examination_system\\examination_system\\examination_system\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BFD69E4-BC90-4F0A-BDEA-D4D279961DE2}|examination_system\\examination_system.csproj|solutionrelative:examination_system\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Galal\\Documents\\Courses\\ITI\\IDA\\Advanced Database\\Project\\online_examination_system\\examination_system\\examination_system\\Form1.cs",
+              "RelativeDocumentMoniker": "examination_system\\Form1.cs",
+              "ToolTip": "D:\\Galal\\Documents\\Courses\\ITI\\IDA\\Advanced Database\\Project\\online_examination_system\\examination_system\\examination_system\\Form1.cs [Design]",
+              "RelativeToolTip": "examination_system\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T20:14:27.177Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
