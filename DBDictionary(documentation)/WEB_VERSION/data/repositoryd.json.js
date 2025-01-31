@@ -1,0 +1,1 @@
+window.repositoryObject = {"object_id":"repositoryd","custom_fields":[],"documentations":[{"id":"d2","name":"Examination_System_DATA_Dictionary","type":"DATABASE","is_user_defined":false,"custom_fields":{"Owner":{"value":"","type":"USER"}}}]};
