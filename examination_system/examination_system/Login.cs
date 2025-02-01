@@ -8,6 +8,7 @@ namespace examination_system
     public partial class Login : Form
     {
         Examination_SystemContext context;
+        public static string emailText;
         public Login()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace examination_system
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
@@ -43,33 +44,35 @@ namespace examination_system
         private void loginButton_Click(object sender, EventArgs e)
         {
 
-
+            #region for student test
+            Student1 student1 = new Student1(3);
+            emailText = emailTextBox.Text;
+            this.Hide();
+            student1.Show();
+            #endregion
             // some code LINQ
             //WHERE to Filter DATA
             //var CoursesWithC= context.Courses.Where(c => c.Name.ToLower().StartsWith("c"));
 
             // Select to some prop of obj
             //for select one 
-           // var test2= context.Courses.Select(c => c.Name.ToLower());
+            // var test2= context.Courses.Select(c => c.Name.ToLower());
             // for multi
 
-           // var test3= context.Courses.Select(c =>new { smallcase = c.Name.ToLower() ,id=c.Id});
+            // var test3= context.Courses.Select(c =>new { smallcase = c.Name.ToLower() ,id=c.Id});
 
 
 
 
             // MessageBox.Show(roleComboBox.Text);
 
-            if (roleComboBox.Text== "Instructor")
+            if (roleComboBox.Text == "Instructor")
             {
-                var res = context.Instructors.Include(ins => ins.Courses).FirstOrDefault(ins => ins.Email == emailTextBox.Text && ins.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
+
+
+                var res = context.Instructors.FirstOrDefault(ins => ins.Email == emailTextBox.Text && ins.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
                 if (res == null) MessageBox.Show("not found email !");
-                else
-                {
-                    InstructorForm instructorForm = new InstructorForm(res, context);
-                    instructorForm.Show();
-                    this.Hide();
-                }
+
                 //var res2 = context.Instructors.FirstOrDefault(ins => );
                 //if (res2 == null) MessageBox.Show("not found password !");
 
@@ -81,7 +84,12 @@ namespace examination_system
                                                                 && stud.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
                 if (res == null) MessageBox.Show("not found email !");
             }
-  
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
 
         ~Login()
