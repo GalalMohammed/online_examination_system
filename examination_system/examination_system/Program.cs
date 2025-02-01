@@ -10,26 +10,12 @@ namespace examination_system
         /// </summary>
         [STAThread]
         static void Main()
-
         {
+<<<<<<< Updated upstream
+=======
+            
 
-            Examination_SystemContext context = new();
-            Examination_SystemContextProcedures systemContextProcedures = new(context);
-            var OurCourses=  context.Courses.ToList();
-
-
-            var exam = systemContextProcedures.Exam_GenerationAsync(3,3, "mo khaled test for galal", 5, 5, 2, 3).Result;
-            if (exam != null)
-            {
-                MessageBox.Show("Exam generated successfully");
-            }
-            else
-            {
-                MessageBox.Show("Failed to generate exam");
-            }
-
-
-
+>>>>>>> Stashed changes
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
