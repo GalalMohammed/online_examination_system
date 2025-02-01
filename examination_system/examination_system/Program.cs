@@ -18,15 +18,17 @@ namespace examination_system
             var OurCourses=  context.Courses.ToList();
 
 
-            var res = systemContextProcedures.Insert_StudentAsync(
-                        "test mk",
-                        "testtest",
-                        "hmmad@test.com",
-                        Encoding.UTF8.GetBytes("test from Windows App"),
-                        "32.fesial",
-                        25,
-                        2
-                    ).Result;
+            var exam = systemContextProcedures.Exam_GenerationAsync(3,3, "mo khaled test for galal", 5, 5, 2, 3).Result;
+            if (exam != null)
+            {
+                MessageBox.Show("Exam generated successfully");
+            }
+            else
+            {
+                MessageBox.Show("Failed to generate exam");
+            }
+
+
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
