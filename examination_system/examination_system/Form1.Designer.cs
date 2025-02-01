@@ -1,6 +1,8 @@
-﻿namespace examination_system
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace examination_system
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -94,7 +96,7 @@
             loginButton.UseVisualStyleBackColor = true;
             loginButton.Click += loginButton_Click;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -106,8 +108,8 @@
             Controls.Add(emailLabel);
             Controls.Add(roleComboBox);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Login";
+            Text = "Login";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();

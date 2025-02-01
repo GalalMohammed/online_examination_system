@@ -4,10 +4,10 @@ using System.Text;
 
 namespace examination_system
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         Examination_SystemContext context;
-        public Form1()
+        public Login()
         {
             context = new Examination_SystemContext();  
             InitializeComponent();
