@@ -44,7 +44,6 @@
             roleComboBox.Name = "roleComboBox";
             roleComboBox.Size = new Size(138, 28);
             roleComboBox.TabIndex = 0;
-            //roleComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // emailLabel
             // 
@@ -105,6 +104,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
