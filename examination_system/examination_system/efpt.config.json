@@ -1,0 +1,302 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "Examination_SystemContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "examination_system",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Choice]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Course]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Department]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Enrollment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Exam]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ExamQuestion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Instructor]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Question]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Student]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StudentAnswer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Teaching]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Topic]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Delete_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Delete_Department]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Delete_Student]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Delete_StudentAnswer]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Delete_Topic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteEnrollment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteInstructor]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Exam_Generation]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ExamCorrection]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetInstructor]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Insert_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Insert_Department]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Insert_Student]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Insert_StudentAnswer]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Insert_Topic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertEnrollment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertInstructor]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertStudentAnswer]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Select_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Select_Department]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Select_Student]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Select_StudentAnswer]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Select_Topic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectEnrollment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_cChoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_cExamQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_cQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_dChoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_dExamQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_dQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_rChoices]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_reportDepartmentStudents]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_ReportingGetCourseTopics]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_ReportingGetExamQuestions]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_ReportingGetInstructorCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_ReportingGetStudentExamAnswers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_ReportingGetStudentGrades]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_rExamQuestions]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_rQuestions]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_uChoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_uExamQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_uQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Update_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Update_Department]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Update_Student]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Update_StudentAnswer]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[Update_Topic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateEnrollment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateInstructor]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

@@ -39,18 +39,19 @@
             // roleComboBox
             // 
             roleComboBox.Items.AddRange(new object[] { "Admin", "Instructor", "Student" });
-            roleComboBox.Location = new Point(300, 50);
+            roleComboBox.Location = new Point(343, 67);
+            roleComboBox.Margin = new Padding(3, 4, 3, 4);
             roleComboBox.Name = "roleComboBox";
-            roleComboBox.Size = new Size(121, 23);
+            roleComboBox.Size = new Size(138, 28);
             roleComboBox.TabIndex = 0;
             roleComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new Point(150, 150);
+            emailLabel.Location = new Point(171, 200);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new Size(36, 15);
+            emailLabel.Size = new Size(46, 20);
             emailLabel.TabIndex = 1;
             emailLabel.Text = "Email";
             emailLabel.Click += label1_Click;
@@ -58,48 +59,56 @@
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(150, 200);
+            passwordLabel.Location = new Point(171, 267);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(57, 15);
+            passwordLabel.Size = new Size(70, 20);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Password";
             // 
             // emailTextBox
             // 
-            emailTextBox.Location = new Point(300, 150);
+            emailTextBox.Location = new Point(343, 200);
+            emailTextBox.Margin = new Padding(3, 4, 3, 4);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(100, 23);
+            emailTextBox.Size = new Size(114, 27);
             emailTextBox.TabIndex = 3;
+            emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(300, 200);
+            passwordTextBox.Location = new Point(343, 267);
+            passwordTextBox.Margin = new Padding(3, 4, 3, 4);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(100, 23);
+            passwordTextBox.Size = new Size(114, 27);
             passwordTextBox.TabIndex = 4;
+            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(350, 300);
+            loginButton.Location = new Point(400, 400);
+            loginButton.Margin = new Padding(3, 4, 3, 4);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(75, 23);
+            loginButton.Size = new Size(86, 31);
             loginButton.TabIndex = 5;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += loginButton_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(loginButton);
             Controls.Add(passwordTextBox);
             Controls.Add(emailTextBox);
             Controls.Add(passwordLabel);
             Controls.Add(emailLabel);
             Controls.Add(roleComboBox);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
