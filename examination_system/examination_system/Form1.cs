@@ -80,7 +80,7 @@ namespace examination_system
   
         }
 
-        ~Form1()
+        ~Login()
         {
             context.Dispose();
         }
