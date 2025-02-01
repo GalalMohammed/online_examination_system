@@ -1,5 +1,6 @@
 using examination_system.Models;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 
 namespace examination_system
@@ -9,8 +10,8 @@ namespace examination_system
         Examination_SystemContext context;
         public Login()
         {
-            context = new Examination_SystemContext();
             InitializeComponent();
+            context = new Examination_SystemContext();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,13 +62,16 @@ namespace examination_system
 
             if (roleComboBox.Text== "Instructor")
             {
-               
-                
-                    var res = context.Instructors.FirstOrDefault(ins => ins.Email == emailTextBox.Text && ins.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
-                    if (res == null) MessageBox.Show("not found email !");
-
-                    //var res2 = context.Instructors.FirstOrDefault(ins => );
-                    //if (res2 == null) MessageBox.Show("not found password !");
+                var res = context.Instructors.Include(ins => ins.Courses).FirstOrDefault(ins => ins.Email == emailTextBox.Text && ins.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
+                if (res == null) MessageBox.Show("not found email !");
+                else
+                {
+                    InstructorForm instructorForm = new InstructorForm(res, context);
+                    instructorForm.Show();
+                    this.Hide();
+                }
+                //var res2 = context.Instructors.FirstOrDefault(ins => );
+                //if (res2 == null) MessageBox.Show("not found password !");
 
             }
             else
