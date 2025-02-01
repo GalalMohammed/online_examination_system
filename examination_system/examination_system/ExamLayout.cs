@@ -34,7 +34,7 @@ namespace examination_system
         {
             var Exam = con.Exams.Where(e => e.Id == ExamID).FirstOrDefault();
             ExamNameLabel.Text = Exam.Name;
-            LayoutFunc(QuestionCount); 
+            LayoutFunc(QuestionCount);
 
         }
         private void LayoutFunc(int QuestionNumber)
@@ -50,7 +50,7 @@ namespace examination_system
                                                      .Where(c => c.QuestionId == eq.QuestionId) // Filter choices by QuestionId
                                                      .Select(c => new
                                                      {
-                                                        c.Choice1 
+                                                         c.Choice1
                                                      }).ToList()
                                                  })
                                                  .ToList();
@@ -64,11 +64,11 @@ namespace examination_system
                 return;
             }
             //MessageBox.Show($"{ExamID}:{EQlist.Count.ToString()}");
-            if (QuestionCount==EQlist.Count-1)
+            if (QuestionCount == EQlist.Count - 1)
             {
                 SubmitButton.Text = "Submit";
             }
-            
+
             QuestionLabel.Text = $"{EQlist[QuestionCount].QuestionOrder}) " +
                 $"{EQlist[QuestionCount].QuestionText}";
             if (EQlist[QuestionCount].ExamType == "TF")
@@ -90,13 +90,14 @@ namespace examination_system
             QuestionCount++;
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (Ans1RB.Checked)
             {
                 Answers.Add(Ans1RB.Text);
                 Ans1RB.Checked = false;
-            }else if (Ans2RB.Checked)
+            }
+            else if (Ans2RB.Checked)
             {
                 Answers.Add(Ans2RB.Text);
                 Ans2RB.Checked = false;
@@ -119,38 +120,40 @@ namespace examination_system
             if (SubmitButton.Text == "Submit")
             {
                 #region without sp
-                for (int i = 0; i < Answers.Count; i++)
-                {
-                    var QuestionId = con.ExamQuestions.Where(eq => eq.ExamId == ExamID)
-                                                       .OrderBy(eq => eq.QuestionOrder)
-                                                       .Select(eq => eq.QuestionId)
-                                                       .ToList()[i];
-                    StudentAnswer studentAnswer = new StudentAnswer
-                    {
-                        StudentId = studentId,
-                        ExamId = ExamID,
-                        QuestionId = QuestionId,
-                        Choice = Answers[i]
-                    };
-                    con.StudentAnswers.Add(studentAnswer);
-                    con.SaveChanges();
-                }
+                //for (int i = 0; i < Answers.Count; i++)
+                //{
+                //    var QuestionId = con.ExamQuestions.Where(eq => eq.ExamId == ExamID)
+                //                                       .OrderBy(eq => eq.QuestionOrder)
+                //                                       .Select(eq => eq.QuestionId)
+                //                                       .ToList()[i];
+                //    StudentAnswer studentAnswer = new StudentAnswer
+                //    {
+                //        StudentId = studentId,
+                //        ExamId = ExamID,
+                //        QuestionId = QuestionId,
+                //        Choice = Answers[i]
+                //    };
+                //    con.StudentAnswers.Add(studentAnswer);
+                //    con.SaveChanges();
+                //}
                 #endregion
                 Examination_SystemContextProcedures x = new(con);
-                string input = String.Join(";",Answers);
+                string input = String.Join(";", Answers);
                 #region with sp
-                //x.InsertStudentAnswerAsync(studentId, ExamID, input);
+               var res =    await x.InsertStudentAnswerAsync(ExamID,studentId,input);
                 //con.SaveChanges();
                 //MessageBox.Show(res.ToString()); 
                 #endregion
-                x.ExamCorrectionAsync(ExamID, studentId);
-                //"DELETE;Filters rows;LIMIT;False;Filters rows;MAX();Returns all rows;DELETE;False;False"
+               await  x.ExamCorrectionAsync(ExamID, studentId);
+                //"DELETE;Filters rows;LIMIT;False;Filters rows;MAX();Returns all rows;DELETE;False;False".
+                var courseIdOfExam = con.Exams.FirstOrDefault(x => x.Id==ExamID).CourseId;
                 MessageBox.Show("Exam Submitted");
-                var grade = con.Enrollments.Where(en => en.StudentId == studentId &&
-                            con.Exams.Any(exam => exam.Id == ExamID && exam.CourseId == en.CourseId)) // Check if the student is enrolled in the course for the exam
-                            .Select(en => en.Grade)  // Select the Grade from Enrollment
-                            .FirstOrDefault();
-                MessageBox.Show($"Your Score is {grade.ToString()}%");
+                var grade = con.Enrollments.FirstOrDefault(en => en.StudentId == studentId && en.CourseId == courseIdOfExam).Grade;
+                            //con.Exams.Any(exam => exam.Id == ExamID && exam.CourseId == en.CourseId)) // Check if the student is enrolled in the course for the exam
+                            //omar Any retun bool ok!=>and  no there any meaning to be here 
+                           // .Select(en => en.Grade)  // Select the Grade from Enrollment
+                           // .FirstOrDefault();
+                MessageBox.Show($"Your Score is {grade}%");
                 Student1 student1 = new Student1(studentId);
                 this.Hide();
                 student1.Show();
@@ -158,7 +161,12 @@ namespace examination_system
                 return;
             }
             LayoutFunc(QuestionCount);
-            
+
+        }
+
+        private void Ans1RB_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
