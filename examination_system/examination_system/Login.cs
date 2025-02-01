@@ -9,7 +9,7 @@ namespace examination_system
         Examination_SystemContext context;
         public Login()
         {
-            context = new Examination_SystemContext();  
+            context = new Examination_SystemContext();
             InitializeComponent();
         }
 
