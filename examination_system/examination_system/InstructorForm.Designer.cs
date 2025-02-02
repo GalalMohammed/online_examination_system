@@ -42,6 +42,12 @@
             examGenerationTFTextBox = new TextBox();
             examGenerationTFGradeTextBox = new TextBox();
             examGenerationButton = new Button();
+            departmentStudentsReportButton = new Button();
+            studentCoursesReportButton = new Button();
+            instructorCoursesReportButton = new Button();
+            courseTopicsReportButton = new Button();
+            examReportButton = new Button();
+            studentSolutionReportButton = new Button();
             SuspendLayout();
             // 
             // examGenerationLabel
@@ -175,12 +181,90 @@
             examGenerationButton.UseVisualStyleBackColor = false;
             examGenerationButton.Click += examGenerationButton_Click;
             // 
+            // departmentStudentsReportButton
+            // 
+            departmentStudentsReportButton.BackColor = SystemColors.ActiveCaption;
+            departmentStudentsReportButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline);
+            departmentStudentsReportButton.Location = new Point(420, 40);
+            departmentStudentsReportButton.Name = "departmentStudentsReportButton";
+            departmentStudentsReportButton.Size = new Size(210, 40);
+            departmentStudentsReportButton.TabIndex = 14;
+            departmentStudentsReportButton.Text = "Department Students Report";
+            departmentStudentsReportButton.UseVisualStyleBackColor = false;
+            departmentStudentsReportButton.Click += departmentStudentsReportButton_Click;
+            // 
+            // studentCoursesReportButton
+            // 
+            studentCoursesReportButton.BackColor = SystemColors.ActiveCaption;
+            studentCoursesReportButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline);
+            studentCoursesReportButton.Location = new Point(420, 89);
+            studentCoursesReportButton.Name = "studentCoursesReportButton";
+            studentCoursesReportButton.Size = new Size(210, 40);
+            studentCoursesReportButton.TabIndex = 15;
+            studentCoursesReportButton.Text = "Student Courses Report";
+            studentCoursesReportButton.UseVisualStyleBackColor = false;
+            studentCoursesReportButton.Click += studentCoursesReportButton_Click;
+            // 
+            // instructorCoursesReportButton
+            // 
+            instructorCoursesReportButton.BackColor = SystemColors.ActiveCaption;
+            instructorCoursesReportButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline);
+            instructorCoursesReportButton.Location = new Point(420, 138);
+            instructorCoursesReportButton.Name = "instructorCoursesReportButton";
+            instructorCoursesReportButton.Size = new Size(210, 40);
+            instructorCoursesReportButton.TabIndex = 16;
+            instructorCoursesReportButton.Text = "Instructor Courses Report";
+            instructorCoursesReportButton.UseVisualStyleBackColor = false;
+            instructorCoursesReportButton.Click += instructorCoursesReportButton_Click;
+            // 
+            // courseTopicsReportButton
+            // 
+            courseTopicsReportButton.BackColor = SystemColors.ActiveCaption;
+            courseTopicsReportButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline);
+            courseTopicsReportButton.Location = new Point(420, 187);
+            courseTopicsReportButton.Name = "courseTopicsReportButton";
+            courseTopicsReportButton.Size = new Size(210, 40);
+            courseTopicsReportButton.TabIndex = 17;
+            courseTopicsReportButton.Text = "Course Topics Report";
+            courseTopicsReportButton.UseVisualStyleBackColor = false;
+            courseTopicsReportButton.Click += courseTopicsReportButton_Click;
+            // 
+            // examReportButton
+            // 
+            examReportButton.BackColor = SystemColors.ActiveCaption;
+            examReportButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline);
+            examReportButton.Location = new Point(420, 236);
+            examReportButton.Name = "examReportButton";
+            examReportButton.Size = new Size(210, 40);
+            examReportButton.TabIndex = 18;
+            examReportButton.Text = "Exam FreeForm Report";
+            examReportButton.UseVisualStyleBackColor = false;
+            examReportButton.Click += examReportButton_Click;
+            // 
+            // studentSolutionReportButton
+            // 
+            studentSolutionReportButton.BackColor = SystemColors.ActiveCaption;
+            studentSolutionReportButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline);
+            studentSolutionReportButton.Location = new Point(420, 285);
+            studentSolutionReportButton.Name = "studentSolutionReportButton";
+            studentSolutionReportButton.Size = new Size(210, 40);
+            studentSolutionReportButton.TabIndex = 19;
+            studentSolutionReportButton.Text = "Student Solution Report";
+            studentSolutionReportButton.UseVisualStyleBackColor = false;
+            studentSolutionReportButton.Click += studentSolutionReportButton_Click;
+            // 
             // InstructorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(studentSolutionReportButton);
+            Controls.Add(examReportButton);
+            Controls.Add(courseTopicsReportButton);
+            Controls.Add(instructorCoursesReportButton);
+            Controls.Add(studentCoursesReportButton);
+            Controls.Add(departmentStudentsReportButton);
             Controls.Add(examGenerationButton);
             Controls.Add(examGenerationTFGradeTextBox);
             Controls.Add(examGenerationTFTextBox);
@@ -218,5 +302,11 @@
         private TextBox examGenerationTFTextBox;
         private TextBox examGenerationTFGradeTextBox;
         private Button examGenerationButton;
+        private Button departmentStudentsReportButton;
+        private Button studentCoursesReportButton;
+        private Button instructorCoursesReportButton;
+        private Button courseTopicsReportButton;
+        private Button examReportButton;
+        private Button studentSolutionReportButton;
     }
 }

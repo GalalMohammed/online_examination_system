@@ -60,5 +60,67 @@ namespace examination_system
         {
 
         }
+
+        private void departmentStudentsReportButton_Click(object sender, EventArgs e)
+        {
+            string? reportPath = ConfigLoader.LoadConfig("DepartmentStudentsReportPath");
+            if (reportPath == null)
+                MessageBox.Show("DepartmentStudentsReportPath is not set in the configuration file");
+            else
+                OpenRdlInReportBuilder(reportPath);
+        }
+        private static void OpenRdlInReportBuilder(string reportPath)
+        {
+            string? reportBuilderPath = ConfigLoader.LoadConfig("ReportBuilderPath");
+            if (reportBuilderPath == null)
+                MessageBox.Show("Report Builder path is not set in the configuration file");
+            else
+                System.Diagnostics.Process.Start(reportBuilderPath, $"\"{reportPath}\"");
+        }
+
+        private void studentCoursesReportButton_Click(object sender, EventArgs e)
+        {
+            string? reportPath = ConfigLoader.LoadConfig("StudentCoursesReportPath");
+            if (reportPath == null)
+                MessageBox.Show("StudentCoursesReportPath is not set in the configuration file");
+            else
+                OpenRdlInReportBuilder(reportPath);
+        }
+
+        private void instructorCoursesReportButton_Click(object sender, EventArgs e)
+        {
+            string? reportPath = ConfigLoader.LoadConfig("InstructorCoursesReportPath");
+            if (reportPath == null)
+                MessageBox.Show("InstructorCoursesReportPath is not set in the configuration file");
+            else
+                OpenRdlInReportBuilder(reportPath);
+        }
+
+        private void courseTopicsReportButton_Click(object sender, EventArgs e)
+        {
+            string? reportPath = ConfigLoader.LoadConfig("CourseTopicsReportPath");
+            if (reportPath == null)
+                MessageBox.Show("CourseTopicsReportPath is not set in the configuration file");
+            else
+                OpenRdlInReportBuilder(reportPath);
+        }
+
+        private void examReportButton_Click(object sender, EventArgs e)
+        {
+            string? reportPath = ConfigLoader.LoadConfig("ExamReportPath");
+            if (reportPath == null)
+                MessageBox.Show("ExamReportPath is not set in the configuration file");
+            else
+                OpenRdlInReportBuilder(reportPath);
+        }
+
+        private void studentSolutionReportButton_Click(object sender, EventArgs e)
+        {
+            string? reportPath = ConfigLoader.LoadConfig("StudentAnswersReportPath");
+            if (reportPath == null)
+                MessageBox.Show("StudentAnswersReportPath is not set in the configuration file");
+            else
+                OpenRdlInReportBuilder(reportPath);
+        }
     }
 }
