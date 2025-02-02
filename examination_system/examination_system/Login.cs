@@ -27,24 +27,6 @@ namespace examination_system
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //string reportBuilderPath = @"""C:\Program Files (x86)\Microsoft Report Builder\MSReportBuilder.exe""";
-            //string reportFilePath = @"C:\Users\dell\Desktop\ExamAndQuestionsReport.rdl";
-
-            //ProcessStartInfo startInfo = new ProcessStartInfo(reportBuilderPath)
-            //{
-            //    Arguments = reportFilePath,
-            //    UseShellExecute = false
-            //};
-
-            //Process process = Process.Start(startInfo);
-            //process.WaitForExit();
-            //this.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            //this.reportViewer1.LocalReport.ReportPath = @"C:\Users\dell\Desktop\ExamAndQuestionsReport.rdl";
-
-            //// Add any necessary report parameters or data sources here
-
-            //this.reportViewer1.RefreshReport();
-
         }
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)

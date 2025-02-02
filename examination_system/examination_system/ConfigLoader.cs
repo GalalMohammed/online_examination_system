@@ -9,9 +9,9 @@ namespace examination_system
 {
     internal class ConfigLoader
     {
-        internal static string? LoadConfig()
+        internal static string? LoadConfig(string jsonKey)
         {
-            return JObject.Parse(File.ReadAllText(".appSettings.json"))["ConnectionString"]?.ToString();
+            return JObject.Parse(File.ReadAllText(".appSettings.json"))[jsonKey]?.ToString();
         }
     }
 }

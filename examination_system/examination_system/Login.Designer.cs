@@ -30,6 +30,7 @@ namespace examination_system
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             roleComboBox = new ComboBox();
             emailLabel = new Label();
             passwordLabel = new Label();
@@ -41,35 +42,35 @@ namespace examination_system
             // roleComboBox
             // 
             roleComboBox.Items.AddRange(new object[] { "Admin", "Instructor", "Student" });
-            roleComboBox.Location = new Point(343, 67);
-            roleComboBox.Margin = new Padding(3, 4, 3, 4);
+            roleComboBox.Location = new Point(300, 50);
             roleComboBox.Name = "roleComboBox";
             roleComboBox.Size = new Size(158, 28);
             roleComboBox.TabIndex = 0;
             // 
             // emailLabel
             // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new Point(171, 200);
+            emailLabel.BackColor = SystemColors.ActiveCaption;
+            emailLabel.Font = new System.Drawing.Font("Sans Serif Collection", 8.999999F);
+            emailLabel.Location = new Point(150, 150);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new Size(46, 20);
+            emailLabel.Size = new Size(75, 30);
             emailLabel.TabIndex = 1;
             emailLabel.Text = "Email";
             emailLabel.Click += label1_Click;
             // 
             // passwordLabel
             // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(171, 267);
+            passwordLabel.BackColor = SystemColors.ActiveCaption;
+            passwordLabel.Font = new System.Drawing.Font("Sans Serif Collection", 8.999999F);
+            passwordLabel.Location = new Point(150, 200);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(73, 20);
+            passwordLabel.Size = new Size(75, 30);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Password:";
             // 
             // emailTextBox
             // 
-            emailTextBox.Location = new Point(343, 200);
-            emailTextBox.Margin = new Padding(3, 4, 3, 4);
+            emailTextBox.Location = new Point(260, 150);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(215, 27);
             emailTextBox.TabIndex = 3;
@@ -77,8 +78,7 @@ namespace examination_system
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(343, 267);
-            passwordTextBox.Margin = new Padding(3, 4, 3, 4);
+            passwordTextBox.Location = new Point(260, 200);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(215, 27);
             passwordTextBox.TabIndex = 4;
@@ -86,27 +86,30 @@ namespace examination_system
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(400, 400);
-            loginButton.Margin = new Padding(3, 4, 3, 4);
+            loginButton.BackColor = SystemColors.ActiveCaption;
+            loginButton.Font = new System.Drawing.Font("Sans Serif Collection", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            loginButton.Location = new Point(282, 300);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(86, 31);
+            loginButton.Size = new Size(90, 40);
             loginButton.TabIndex = 5;
             loginButton.Text = "Login";
-            loginButton.UseVisualStyleBackColor = true;
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            BackColor = Color.IndianRed;
+            BackgroundImage = (System.Drawing.Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(800, 450);
             Controls.Add(loginButton);
             Controls.Add(passwordTextBox);
             Controls.Add(emailTextBox);
             Controls.Add(passwordLabel);
             Controls.Add(emailLabel);
             Controls.Add(roleComboBox);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             Text = "Login";
             Load += Form1_Load;
