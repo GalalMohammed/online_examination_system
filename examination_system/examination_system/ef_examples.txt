@@ -1,0 +1,3 @@
+var CoursesWithC = context.Courses.Where( c => c.Name.ToLower().StartsWith("c") );
+var test1 = context.Courses.Select( c => c.Name.ToLower() );
+var test2 = context.Courses.Select( c => new { smallcase = c.Name.ToLower(), id = c.Id } );

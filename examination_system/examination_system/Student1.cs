@@ -46,11 +46,11 @@ namespace examination_system
             int index = 0;
             for (int i = 0; i < studentsList.Count; i++)
             {
-                if (studentsList[i].Email == Login.emailText)
-                {
-                    index = i;
-                    break;
-                }
+                //if (studentsList[i].Email == Login.emailText)
+                //{
+                //    index = i;
+                //    break;
+                //}
             }
             studentId = std.Id;
             WelcomeLabel.Text = $"Welcome {studentsList[index].Fname} {studentsList[index].Lname}\n" +
