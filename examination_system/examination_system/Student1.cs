@@ -29,10 +29,11 @@ namespace examination_system
             con = new Examination_SystemContext();
             InitializeComponent();
             studentId = id;
+            std=con.Students.FirstOrDefault(s => s.Id == id);
         }
-        public Student1(Student _std)
+        public Student1(Student _std, Examination_SystemContext _con)
         {
-            con = new Examination_SystemContext();
+            con = _con;
             InitializeComponent();
             std = _std;
             studentId = _std.Id;
@@ -43,18 +44,10 @@ namespace examination_system
             
 
             var studentsList = con.Students.ToList();
-            int index = 0;
-            for (int i = 0; i < studentsList.Count; i++)
-            {
-                //if (studentsList[i].Email == Login.emailText)
-                //{
-                //    index = i;
-                //    break;
-                //}
-            }
+            
             studentId = std.Id;
-            WelcomeLabel.Text = $"Welcome {studentsList[index].Fname} {studentsList[index].Lname}\n" +
-                $"Your ID is {studentsList[index].Id}";
+            WelcomeLabel.Text = $"Welcome {std.Fname} {std.Lname}\n" +
+                $"Your ID is {std.Id}";
 
             var examsNotAnsweredByStudent = con.Students
                         .Where(s => s.Id == studentId)

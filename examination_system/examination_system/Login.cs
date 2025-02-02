@@ -38,12 +38,12 @@ namespace examination_system
 
             //Process process = Process.Start(startInfo);
             //process.WaitForExit();
-            this.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            this.reportViewer1.LocalReport.ReportPath = @"C:\Users\dell\Desktop\ExamAndQuestionsReport.rdl";
+            //this.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            //this.reportViewer1.LocalReport.ReportPath = @"C:\Users\dell\Desktop\ExamAndQuestionsReport.rdl";
 
-            // Add any necessary report parameters or data sources here
+            //// Add any necessary report parameters or data sources here
 
-            this.reportViewer1.RefreshReport();
+            //this.reportViewer1.RefreshReport();
 
         }
 
@@ -78,8 +78,8 @@ namespace examination_system
                     MessageBox.Show("Invalid email or password");
                 else
                 {
-                    //Student1 studentForm = new(student, context);
-                    //studentForm.Show();
+                    Student1 studentForm = new(student, context);
+                    studentForm.Show();
                     this.Hide();
                 }
             }
