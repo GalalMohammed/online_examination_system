@@ -47,23 +47,26 @@
             // examGenerationLabel
             // 
             examGenerationLabel.AutoSize = true;
+            examGenerationLabel.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             examGenerationLabel.Location = new Point(40, 40);
             examGenerationLabel.Name = "examGenerationLabel";
-            examGenerationLabel.Size = new Size(96, 15);
+            examGenerationLabel.Size = new Size(129, 41);
             examGenerationLabel.TabIndex = 0;
             examGenerationLabel.Text = "Exam Generation";
             // 
             // examGenerationCourseLabel
             // 
             examGenerationCourseLabel.AutoSize = true;
+            examGenerationCourseLabel.Font = new Font("Sans Serif Collection", 8.999999F);
             examGenerationCourseLabel.Location = new Point(40, 75);
             examGenerationCourseLabel.Name = "examGenerationCourseLabel";
-            examGenerationCourseLabel.Size = new Size(44, 15);
+            examGenerationCourseLabel.Size = new Size(58, 41);
             examGenerationCourseLabel.TabIndex = 1;
             examGenerationCourseLabel.Text = "Course";
             // 
             // instructorCoursesComboBox
             // 
+            instructorCoursesComboBox.BackColor = SystemColors.GradientActiveCaption;
             instructorCoursesComboBox.FormattingEnabled = true;
             instructorCoursesComboBox.Location = new Point(140, 75);
             instructorCoursesComboBox.Name = "instructorCoursesComboBox";
@@ -73,14 +76,16 @@
             // examGenerationNameLabel
             // 
             examGenerationNameLabel.AutoSize = true;
+            examGenerationNameLabel.Font = new Font("Sans Serif Collection", 8.999999F);
             examGenerationNameLabel.Location = new Point(45, 110);
             examGenerationNameLabel.Name = "examGenerationNameLabel";
-            examGenerationNameLabel.Size = new Size(39, 15);
+            examGenerationNameLabel.Size = new Size(52, 41);
             examGenerationNameLabel.TabIndex = 3;
             examGenerationNameLabel.Text = "Name";
             // 
             // examGenerationNameTextBox
             // 
+            examGenerationNameTextBox.BackColor = SystemColors.ActiveCaption;
             examGenerationNameTextBox.Location = new Point(140, 110);
             examGenerationNameTextBox.Name = "examGenerationNameTextBox";
             examGenerationNameTextBox.Size = new Size(100, 23);
@@ -89,14 +94,16 @@
             // examGenerationMCQLabel
             // 
             examGenerationMCQLabel.AutoSize = true;
+            examGenerationMCQLabel.Font = new Font("Sans Serif Collection", 8.999999F);
             examGenerationMCQLabel.Location = new Point(45, 145);
             examGenerationMCQLabel.Name = "examGenerationMCQLabel";
-            examGenerationMCQLabel.Size = new Size(35, 15);
+            examGenerationMCQLabel.Size = new Size(46, 41);
             examGenerationMCQLabel.TabIndex = 5;
             examGenerationMCQLabel.Text = "MCQ";
             // 
             // examGenerationMCQTextBox
             // 
+            examGenerationMCQTextBox.BackColor = SystemColors.ActiveCaption;
             examGenerationMCQTextBox.Location = new Point(140, 145);
             examGenerationMCQTextBox.Name = "examGenerationMCQTextBox";
             examGenerationMCQTextBox.Size = new Size(100, 23);
@@ -105,14 +112,16 @@
             // examGenerationMCQGradeLabel
             // 
             examGenerationMCQGradeLabel.AutoSize = true;
+            examGenerationMCQGradeLabel.Font = new Font("Sans Serif Collection", 8.999999F);
             examGenerationMCQGradeLabel.Location = new Point(45, 180);
             examGenerationMCQGradeLabel.Name = "examGenerationMCQGradeLabel";
-            examGenerationMCQGradeLabel.Size = new Size(69, 15);
+            examGenerationMCQGradeLabel.Size = new Size(83, 41);
             examGenerationMCQGradeLabel.TabIndex = 7;
             examGenerationMCQGradeLabel.Text = "MCQ Grade";
             // 
             // examGenarationMCQGradeTextBox
             // 
+            examGenarationMCQGradeTextBox.BackColor = SystemColors.ActiveCaption;
             examGenarationMCQGradeTextBox.Location = new Point(140, 180);
             examGenarationMCQGradeTextBox.Name = "examGenarationMCQGradeTextBox";
             examGenarationMCQGradeTextBox.Size = new Size(100, 23);
@@ -121,23 +130,26 @@
             // examGenerationTFLabel
             // 
             examGenerationTFLabel.AutoSize = true;
+            examGenerationTFLabel.Font = new Font("Sans Serif Collection", 8.999999F);
             examGenerationTFLabel.Location = new Point(45, 215);
             examGenerationTFLabel.Name = "examGenerationTFLabel";
-            examGenerationTFLabel.Size = new Size(20, 15);
+            examGenerationTFLabel.Size = new Size(31, 41);
             examGenerationTFLabel.TabIndex = 9;
             examGenerationTFLabel.Text = "TF";
             // 
             // examGearationTFGradeLabel
             // 
             examGearationTFGradeLabel.AutoSize = true;
+            examGearationTFGradeLabel.Font = new Font("Sans Serif Collection", 8.999999F);
             examGearationTFGradeLabel.Location = new Point(45, 250);
             examGearationTFGradeLabel.Name = "examGearationTFGradeLabel";
-            examGearationTFGradeLabel.Size = new Size(54, 15);
+            examGearationTFGradeLabel.Size = new Size(68, 41);
             examGearationTFGradeLabel.TabIndex = 10;
             examGearationTFGradeLabel.Text = "TF Grade";
             // 
             // examGenerationTFTextBox
             // 
+            examGenerationTFTextBox.BackColor = SystemColors.ActiveCaption;
             examGenerationTFTextBox.Location = new Point(140, 215);
             examGenerationTFTextBox.Name = "examGenerationTFTextBox";
             examGenerationTFTextBox.Size = new Size(100, 23);
@@ -145,6 +157,7 @@
             // 
             // examGenerationTFGradeTextBox
             // 
+            examGenerationTFGradeTextBox.BackColor = SystemColors.ActiveCaption;
             examGenerationTFGradeTextBox.Location = new Point(140, 250);
             examGenerationTFGradeTextBox.Name = "examGenerationTFGradeTextBox";
             examGenerationTFGradeTextBox.Size = new Size(100, 23);
@@ -152,18 +165,21 @@
             // 
             // examGenerationButton
             // 
-            examGenerationButton.Location = new Point(103, 285);
+            examGenerationButton.BackColor = SystemColors.ActiveCaption;
+            examGenerationButton.Font = new Font("Sans Serif Collection", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            examGenerationButton.Location = new Point(100, 285);
             examGenerationButton.Name = "examGenerationButton";
-            examGenerationButton.Size = new Size(75, 23);
+            examGenerationButton.Size = new Size(90, 40);
             examGenerationButton.TabIndex = 13;
             examGenerationButton.Text = "Generate";
-            examGenerationButton.UseVisualStyleBackColor = true;
+            examGenerationButton.UseVisualStyleBackColor = false;
             examGenerationButton.Click += examGenerationButton_Click;
             // 
             // InstructorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(examGenerationButton);
             Controls.Add(examGenerationTFGradeTextBox);

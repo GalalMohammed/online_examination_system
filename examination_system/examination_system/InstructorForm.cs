@@ -20,15 +20,14 @@ namespace examination_system
             instructor = _instructor;
             this.context = context;
             InitializeComponent();
-            context.Entry(instructor).Collection(i => i.Courses).Load();
-            instructorCoursesComboBox.DataSource = instructor.Courses;
-            instructorCoursesComboBox.DisplayMember = "Name";
-            instructorCoursesComboBox.ValueMember = "Id";
         }
 
         private void InstructorForm_Load(object sender, EventArgs e)
         {
-
+            context.Entry(instructor).Collection(i => i.Courses).Load();
+            instructorCoursesComboBox.DataSource = instructor.Courses;
+            instructorCoursesComboBox.DisplayMember = "Name";
+            instructorCoursesComboBox.ValueMember = "Id";
         }
 
         private async void examGenerationButton_Click(object sender, EventArgs e)
@@ -51,10 +50,15 @@ namespace examination_system
                 Examination_SystemContextProcedures spContext = new(context);
                 var exam = await spContext.Exam_GenerationAsync(instructor.Id, course.Id, examGenerationNameTextBox.Text ?? null, mcq, tf, mcqGrade, tfGrade);
                 if (exam != null)
-                    MessageBox.Show("Exam generated successfully");
+                    MessageBox.Show("Exam generated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Failed to generate exam");
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
