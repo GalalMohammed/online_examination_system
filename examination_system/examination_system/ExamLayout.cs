@@ -16,6 +16,7 @@ namespace examination_system
         int studentId, ExamID, QuestionCount;
         Examination_SystemContext con;
         List<string> Answers = new();
+        private System.Windows.Forms.Timer timer;
 
         public ExamLayout()
         {
@@ -29,12 +30,20 @@ namespace examination_system
             studentId = Sid;
             ExamID = Examid;
             QuestionCount = 0;
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            timer.Tick += new EventHandler(timer_Tick);
+            this.FormClosing += new FormClosingEventHandler(ExamLayout_FormClosing);
+
         }
         private void ExamLayout_Load(object sender, EventArgs e)
         {
             var Exam = con.Exams.Where(e => e.Id == ExamID).FirstOrDefault();
             ExamNameLabel.Text = Exam.Name;
+            TimerLabel.Text = "01:10";
+            timer.Start();
             LayoutFunc(QuestionCount);
+
 
         }
         private void LayoutFunc(int QuestionNumber)
@@ -56,6 +65,7 @@ namespace examination_system
                                                  .ToList();
             if (EQlist.Count == 0)
             {
+                timer.Stop();
                 MessageBox.Show("Exam is Empty");
                 Student1 student1 = new Student1(studentId);
                 this.Hide();
@@ -92,33 +102,11 @@ namespace examination_system
         }
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (!CheckAnswer()){return;
-            }
-            
+            if (!CheckAnswer()) { return; }
+
             if (SubmitButton.Text == "Submit")
             {
-
-
-
-
-
-                Examination_SystemContextProcedures x = new(con);
-                string input = String.Join(";", Answers);
-                #region with sp
-                var res = await x.InsertStudentAnswerAsync(ExamID, studentId, input);
-                #endregion
-                await x.ExamCorrectionAsync(ExamID, studentId);
-
-                var courseIdOfExam = con.Exams.FirstOrDefault(x => x.Id==ExamID).CourseId;
-                MessageBox.Show("Exam Submitted");
-                var grade = con.Enrollments.FirstOrDefault(en => en.StudentId == studentId && en.CourseId == courseIdOfExam).Grade;
-                
-                
-                MessageBox.Show($"Your Score is {grade}%");
-                Student1 student1 = new Student1(studentId);
-                this.Hide();
-                student1.Show();
-                this.Dispose();
+                submitExam();
                 return;
             }
             LayoutFunc(QuestionCount);
@@ -153,9 +141,56 @@ namespace examination_system
             }
             return true;
         }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (TimerLabel.Text == "00:00")
+            {
+                timer.Stop();
+                MessageBox.Show("Time is up");
+                submitExam();
+                Student1 student1 = new Student1(studentId);
+                this.Hide();
+                student1.Show();
+                this.Dispose();
+                return;
+            }
+            TimeSpan time = TimeSpan.ParseExact(TimerLabel.Text, @"mm\:ss", null);
+            time = time - TimeSpan.FromSeconds(1);
+            TimerLabel.Text = time.ToString(@"mm\:ss");
+        }
+        private void ExamLayout_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+            // to prevent the form from closing
+            e.Cancel = true;
+            // Or we can implement this logic
+            //timer.Stop();
+            //if (Answers.Count == 0) { Answers.Add("No Answers"); } 
+            //submitExam();
+        }
+        private async void submitExam()
+        {
+            Examination_SystemContextProcedures x = new(con);
+            string input = String.Join(";", Answers);
+            #region with sp
+            var res = await x.InsertStudentAnswerAsync(ExamID, studentId, input);
+            #endregion
+            await x.ExamCorrectionAsync(ExamID, studentId);
+            var courseIdOfExam = con.Exams.FirstOrDefault(x => x.Id == ExamID).CourseId;
+            MessageBox.Show("Exam Submitted");
+            var grade = con.Enrollments.FirstOrDefault(en => en.StudentId == studentId && en.CourseId == courseIdOfExam).Grade;
+            MessageBox.Show($"Your Score is {grade}%");
+            timer.Stop();
+            Student1 student1 = new Student1(studentId);
+            this.Hide();
+            student1.Show();
+            this.Dispose();
+        }
         private void Ans1RB_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
