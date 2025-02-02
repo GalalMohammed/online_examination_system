@@ -90,7 +90,7 @@ namespace examination_system
             QuestionCount++;
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (Ans1RB.Checked)
             {
@@ -139,9 +139,9 @@ namespace examination_system
                 Examination_SystemContextProcedures x = new(con);
                 string input = String.Join(";",Answers);
                 #region with sp
-                //x.InsertStudentAnswerAsync(studentId, ExamID, input);
+                //var res= await x.InsertStudentAnswerAsync(3, 7, "DELETE;Filters rows;LIMIT;False;Filters rows;MAX();Returns all rows;DELETE;False;False");
                 //con.SaveChanges();
-                //MessageBox.Show(res.ToString()); 
+                //MessageBox.Show(res.ToString());
                 #endregion
                 x.ExamCorrectionAsync(ExamID, studentId);
                 //"DELETE;Filters rows;LIMIT;False;Filters rows;MAX();Returns all rows;DELETE;False;False"

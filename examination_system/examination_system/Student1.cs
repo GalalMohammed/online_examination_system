@@ -29,21 +29,9 @@ namespace examination_system
             InitializeComponent();
             studentId = id;
         }
-        private async void Student1_Load(object sender, EventArgs e)
+        private void Student1_Load(object sender, EventArgs e)
         {
-            #region ado
-            //string CNS = ConfigLoader.LoadConfig();
-            //SqlConnection con = new SqlConnection(CNS);
-            //con.Open();
-            //string querystring = "SELECT * from Course;";
-            //SqlCommand cmd = new SqlCommand(querystring, con);
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //da.Fill(ds);
-            //MessageBox.Show(ds.Tables[0].Rows[0][1].ToString());
-            #endregion
-            //var re = systemConextProcedures.
-            //MessageBox.Show(con.Students.FirstOrDefault.ToString());
+            
             //Examination_SystemContextProcedures x = new(con);
             //var res = x.Insert_StudentAsync("hammad5", "1", "t55@test.com", Encoding.UTF8.GetBytes("123456"), "add", 25, 4).Result;
 
@@ -73,8 +61,7 @@ namespace examination_system
 
                         })
                         .ToList();
-            //MessageBox.Show($"{studentId}:{examsNotAnsweredByStudent.GetType()}");
-            //MessageBox.Show($"{studentId}:{examsNotAnsweredByStudent.Count.ToString()}");
+            
             ExamIds = new();
             for (int i = 0; i < examsNotAnsweredByStudent.Count; i++)
             {
