@@ -79,6 +79,7 @@
             Ans1RB.TabStop = true;
             Ans1RB.Text = "radioButton1";
             Ans1RB.UseVisualStyleBackColor = true;
+            Ans1RB.CheckedChanged += Ans1RB_CheckedChanged;
             // 
             // Ans2RB
             // 

@@ -43,6 +43,7 @@ public partial class Examination_SystemContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         string jsonString = File.ReadAllText(".appSettings.json");
+        //string jsonString = File.ReadAllText("../../../appSettings.json");
         var jsonData = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
 
         if (jsonData.TryGetValue("ConnectionString", out var connectionString))
