@@ -140,11 +140,7 @@ namespace examination_system
                 Examination_SystemContextProcedures x = new(con);
                 string input = String.Join(";", Answers);
                 #region with sp
-<<<<<<< HEAD
-                //var res= await x.InsertStudentAnswerAsync(3, 7, "DELETE;Filters rows;LIMIT;False;Filters rows;MAX();Returns all rows;DELETE;False;False");
-=======
                var res =    await x.InsertStudentAnswerAsync(ExamID,studentId,input);
->>>>>>> 46ee0038db14a694b4a2507550d7cd8a0ebedbe7
                 //con.SaveChanges();
                 //MessageBox.Show(res.ToString());
                 #endregion
