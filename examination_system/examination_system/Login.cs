@@ -1,6 +1,7 @@
 using examination_system.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using System.Text;
 
 namespace examination_system
@@ -27,7 +28,23 @@ namespace examination_system
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //string reportBuilderPath = @"""C:\Program Files (x86)\Microsoft Report Builder\MSReportBuilder.exe""";
+            //string reportFilePath = @"C:\Users\dell\Desktop\ExamAndQuestionsReport.rdl";
 
+            //ProcessStartInfo startInfo = new ProcessStartInfo(reportBuilderPath)
+            //{
+            //    Arguments = reportFilePath,
+            //    UseShellExecute = false
+            //};
+
+            //Process process = Process.Start(startInfo);
+            //process.WaitForExit();
+            this.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            this.reportViewer1.LocalReport.ReportPath = @"C:\Users\dell\Desktop\ExamAndQuestionsReport.rdl";
+
+            // Add any necessary report parameters or data sources here
+
+            this.reportViewer1.RefreshReport();
 
         }
 
@@ -45,10 +62,12 @@ namespace examination_system
         {
 
             #region for student test
-            Student1 student1 = new Student1(3);
-            emailText = emailTextBox.Text;
-            this.Hide();
-            student1.Show();
+            //Student1 student1 = new Student1(3);
+            //emailText = emailTextBox.Text;
+            //this.Hide();
+            //student1.Show();
+            
+            
             #endregion
             // some code LINQ
             //WHERE to Filter DATA

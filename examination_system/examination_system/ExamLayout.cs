@@ -92,6 +92,40 @@ namespace examination_system
         }
         private async void button1_Click(object sender, EventArgs e)
         {
+            if (!CheckAnswer()){return;
+            }
+            
+            if (SubmitButton.Text == "Submit")
+            {
+
+
+
+
+
+                Examination_SystemContextProcedures x = new(con);
+                string input = String.Join(";", Answers);
+                #region with sp
+                var res = await x.InsertStudentAnswerAsync(ExamID, studentId, input);
+                #endregion
+                await x.ExamCorrectionAsync(ExamID, studentId);
+
+                var courseIdOfExam = con.Exams.FirstOrDefault(x => x.Id==ExamID).CourseId;
+                MessageBox.Show("Exam Submitted");
+                var grade = con.Enrollments.FirstOrDefault(en => en.StudentId == studentId && en.CourseId == courseIdOfExam).Grade;
+                
+                
+                MessageBox.Show($"Your Score is {grade}%");
+                Student1 student1 = new Student1(studentId);
+                this.Hide();
+                student1.Show();
+                this.Dispose();
+                return;
+            }
+            LayoutFunc(QuestionCount);
+
+        }
+        private bool CheckAnswer()
+        {
             if (Ans1RB.Checked)
             {
                 Answers.Add(Ans1RB.Text);
@@ -115,55 +149,10 @@ namespace examination_system
             else
             {
                 MessageBox.Show("You must Chose an answer");
-                return;
+                return false;
             }
-            if (SubmitButton.Text == "Submit")
-            {
-                #region without sp
-                //for (int i = 0; i < Answers.Count; i++)
-                //{
-                //    var QuestionId = con.ExamQuestions.Where(eq => eq.ExamId == ExamID)
-                //                                       .OrderBy(eq => eq.QuestionOrder)
-                //                                       .Select(eq => eq.QuestionId)
-                //                                       .ToList()[i];
-                //    StudentAnswer studentAnswer = new StudentAnswer
-                //    {
-                //        StudentId = studentId,
-                //        ExamId = ExamID,
-                //        QuestionId = QuestionId,
-                //        Choice = Answers[i]
-                //    };
-                //    con.StudentAnswers.Add(studentAnswer);
-                //    con.SaveChanges();
-                //}
-                #endregion
-                Examination_SystemContextProcedures x = new(con);
-                string input = String.Join(";", Answers);
-                #region with sp
-               var res =    await x.InsertStudentAnswerAsync(ExamID,studentId,input);
-                //con.SaveChanges();
-                //MessageBox.Show(res.ToString());
-                #endregion
-               await  x.ExamCorrectionAsync(ExamID, studentId);
-                //"DELETE;Filters rows;LIMIT;False;Filters rows;MAX();Returns all rows;DELETE;False;False".
-                var courseIdOfExam = con.Exams.FirstOrDefault(x => x.Id==ExamID).CourseId;
-                MessageBox.Show("Exam Submitted");
-                var grade = con.Enrollments.FirstOrDefault(en => en.StudentId == studentId && en.CourseId == courseIdOfExam).Grade;
-                            //con.Exams.Any(exam => exam.Id == ExamID && exam.CourseId == en.CourseId)) // Check if the student is enrolled in the course for the exam
-                            //omar Any retun bool ok!=>and  no there any meaning to be here 
-                           // .Select(en => en.Grade)  // Select the Grade from Enrollment
-                           // .FirstOrDefault();
-                MessageBox.Show($"Your Score is {grade}%");
-                Student1 student1 = new Student1(studentId);
-                this.Hide();
-                student1.Show();
-                this.Dispose();
-                return;
-            }
-            LayoutFunc(QuestionCount);
-
+            return true;
         }
-
         private void Ans1RB_CheckedChanged(object sender, EventArgs e)
         {
 

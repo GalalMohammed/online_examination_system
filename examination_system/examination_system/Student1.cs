@@ -17,6 +17,7 @@ namespace examination_system
         Examination_SystemContext con;
         
         int studentId;
+        Student std;
         List<int> ExamIds;
         public Student1()
         {
@@ -29,11 +30,17 @@ namespace examination_system
             InitializeComponent();
             studentId = id;
         }
+        public Student1(Student _std)
+        {
+            con = new Examination_SystemContext();
+            InitializeComponent();
+            std = _std;
+            studentId = _std.Id;
+        }
         private void Student1_Load(object sender, EventArgs e)
         {
             
-            //Examination_SystemContextProcedures x = new(con);
-            //var res = x.Insert_StudentAsync("hammad5", "1", "t55@test.com", Encoding.UTF8.GetBytes("123456"), "add", 25, 4).Result;
+            
 
             var studentsList = con.Students.ToList();
             int index = 0;
@@ -45,7 +52,7 @@ namespace examination_system
                     break;
                 }
             }
-            studentId = studentsList[index].Id;
+            studentId = std.Id;
             WelcomeLabel.Text = $"Welcome {studentsList[index].Fname} {studentsList[index].Lname}\n" +
                 $"Your ID is {studentsList[index].Id}";
 

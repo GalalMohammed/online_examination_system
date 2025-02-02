@@ -1,28 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>4663504e-c900-403d-85fe-eb7dc64172f7</rd:ReportID>
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>PBIRB</am:Name>
       <am:Version>15.7.1813.16</am:Version>
     </am:CreatedBy>
     <am:UpdatedBy>
-      <am:Name>PBIRB</am:Name>
-      <am:Version>15.7.1813.16</am:Version>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-02-01T11:27:49.1725010Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-02-02T11:50:51.2880666Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="Examination_System">
-      <rd:SecurityType>Integrated</rd:SecurityType>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Server=.;Database=Examination_System;Trusted_Connection=True;</ConnectString>
+        <ConnectString>Data Source=OMAR\SQLEXPRESS01;Initial Catalog=Examination_System;TrustServerCertificate=True</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
       <rd:DataSourceID>ad6dbf4e-627e-4739-839f-5961adf70484</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -40,16 +38,16 @@
       </Query>
       <Fields>
         <Field Name="CourseID">
-          <rd:TypeName>System.Int32</rd:TypeName>
           <DataField>CourseID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CourseName">
-          <rd:TypeName>System.String</rd:TypeName>
           <DataField>CourseName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="NumberOfStudents">
-          <rd:TypeName>System.Int32</rd:TypeName>
           <DataField>NumberOfStudents</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -59,8 +57,6 @@
       <Body>
         <ReportItems>
           <Textbox Name="ReportTitle">
-            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
-            <rd:DefaultName>ReportTitle</rd:DefaultName>
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -77,6 +73,8 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <rd:DefaultName>ReportTitle</rd:DefaultName>
             <Height>0.5in</Height>
             <Width>5.5in</Width>
             <Style>
@@ -109,7 +107,6 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox12">
-                          <rd:DefaultName>Textbox12</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -123,6 +120,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -139,7 +137,6 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox14">
-                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -153,6 +150,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -169,7 +167,6 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox16">
-                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -183,6 +180,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -204,7 +202,6 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="CourseName">
-                          <rd:DefaultName>CourseName</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -218,6 +215,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>CourseName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -234,7 +232,6 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="NumberOfStudents">
-                          <rd:DefaultName>NumberOfStudents</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -248,6 +245,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>NumberOfStudents</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -264,7 +262,6 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox17">
-                          <rd:DefaultName>Textbox17</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -278,6 +275,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
+                          <rd:DefaultName>Textbox17</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -315,8 +313,8 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.74528in</Top>
             <Left>0.55778in</Left>
-            <Height>0.76389in</Height>
-            <Width>4.16667in</Width>
+            <Height>0.76388in</Height>
+            <Width>4.16666in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -340,7 +338,6 @@
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Textbox Name="ExecutionTime">
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -356,6 +353,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
               <Top>0.2in</Top>
               <Left>4.10417in</Left>
               <Height>0.25in</Height>
@@ -404,4 +402,6 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>4663504e-c900-403d-85fe-eb7dc64172f7</rd:ReportID>
 </Report>

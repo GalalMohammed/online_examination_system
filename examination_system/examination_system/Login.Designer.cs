@@ -44,7 +44,7 @@ namespace examination_system
             roleComboBox.Location = new Point(343, 67);
             roleComboBox.Margin = new Padding(3, 4, 3, 4);
             roleComboBox.Name = "roleComboBox";
-            roleComboBox.Size = new Size(138, 28);
+            roleComboBox.Size = new Size(158, 28);
             roleComboBox.TabIndex = 0;
             // 
             // emailLabel
@@ -62,7 +62,7 @@ namespace examination_system
             passwordLabel.AutoSize = true;
             passwordLabel.Location = new Point(171, 267);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(70, 20);
+            passwordLabel.Size = new Size(73, 20);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Password:";
             // 
@@ -71,7 +71,7 @@ namespace examination_system
             emailTextBox.Location = new Point(343, 200);
             emailTextBox.Margin = new Padding(3, 4, 3, 4);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(114, 27);
+            emailTextBox.Size = new Size(215, 27);
             emailTextBox.TabIndex = 3;
             emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
@@ -80,7 +80,7 @@ namespace examination_system
             passwordTextBox.Location = new Point(343, 267);
             passwordTextBox.Margin = new Padding(3, 4, 3, 4);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(114, 27);
+            passwordTextBox.Size = new Size(215, 27);
             passwordTextBox.TabIndex = 4;
             passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
