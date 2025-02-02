@@ -20,6 +20,7 @@ namespace examination_system
             instructor = _instructor;
             this.context = context;
             InitializeComponent();
+            context.Entry(instructor).Collection(i => i.Courses).Load();
             instructorCoursesComboBox.DataSource = instructor.Courses;
             instructorCoursesComboBox.DisplayMember = "Name";
             instructorCoursesComboBox.ValueMember = "Id";
