@@ -24,10 +24,17 @@ namespace examination_system
 
         private void InstructorForm_Load(object sender, EventArgs e)
         {
-            context.Entry(instructor).Collection(i => i.Courses).Load();
-            instructorCoursesComboBox.DataSource = instructor.Courses;
-            instructorCoursesComboBox.DisplayMember = "Name";
-            instructorCoursesComboBox.ValueMember = "Id";
+            try
+            {
+                context.Entry(instructor).Collection(i => i.Courses).Load();
+                instructorCoursesComboBox.DataSource = instructor.Courses;
+                instructorCoursesComboBox.DisplayMember = "Name";
+                instructorCoursesComboBox.ValueMember = "Id";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to load courses");
+            }
         }
 
         private async void examGenerationButton_Click(object sender, EventArgs e)
@@ -48,11 +55,18 @@ namespace examination_system
             else
             {
                 Examination_SystemContextProcedures spContext = new(context);
-                var exam = await spContext.Exam_GenerationAsync(instructor.Id, course.Id, examGenerationNameTextBox.Text ?? null, mcq, tf, mcqGrade, tfGrade);
-                if (exam != null)
-                    MessageBox.Show("Exam generated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
+                try
+                {
+                    var exam = await spContext.Exam_GenerationAsync(instructor.Id, course.Id, examGenerationNameTextBox.Text ?? null, mcq, tf, mcqGrade, tfGrade);
+                    if (exam != null)
+                        MessageBox.Show("Exam generated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Failed to generate exam");
+                }
+                catch (Exception)
+                {
                     MessageBox.Show("Failed to generate exam");
+                }
             }
         }
 
@@ -75,7 +89,14 @@ namespace examination_system
             if (reportBuilderPath == null)
                 MessageBox.Show("Report Builder path is not set in the configuration file");
             else
-                System.Diagnostics.Process.Start(reportBuilderPath, $"\"{reportPath}\"");
+                try
+                {
+                    System.Diagnostics.Process.Start(reportBuilderPath, $"\"{reportPath}\"");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Failed to open Report Builder");
+                }
         }
 
         private void studentCoursesReportButton_Click(object sender, EventArgs e)

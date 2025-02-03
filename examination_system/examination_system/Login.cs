@@ -41,29 +41,36 @@ namespace examination_system
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if ( roleComboBox.Text == "Instructor" )
+            try
             {
-                var instructor = context.Instructors.FirstOrDefault( ins => ins.Email == emailTextBox.Text && ins.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text) );
-                if ( instructor == null )
-                    MessageBox.Show("Invalid email or password");
-                else
+                if (roleComboBox.Text == "Instructor")
                 {
-                    InstructorForm instructorForm = new(instructor, context);
-                    instructorForm.Show();
-                    this.Hide();
+                    var instructor = context.Instructors.FirstOrDefault(ins => ins.Email == emailTextBox.Text && ins.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
+                    if (instructor == null)
+                        MessageBox.Show("Invalid email or password");
+                    else
+                    {
+                        InstructorForm instructorForm = new(instructor, context);
+                        instructorForm.Show();
+                        this.Hide();
+                    }
+                }
+                else if (roleComboBox.Text == "Student")
+                {
+                    var student = context.Students.FirstOrDefault(std => std.Email == emailTextBox.Text && std.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
+                    if (student == null)
+                        MessageBox.Show("Invalid email or password");
+                    else
+                    {
+                        Student1 studentForm = new(student, context);
+                        studentForm.Show();
+                        this.Hide();
+                    }
                 }
             }
-            else if (roleComboBox.Text == "Student")
+            catch (Exception)
             {
-                var student = context.Students.FirstOrDefault(std => std.Email == emailTextBox.Text && std.Password == Encoding.UTF8.GetBytes(passwordTextBox.Text));
-                if (student == null)
-                    MessageBox.Show("Invalid email or password");
-                else
-                {
-                    Student1 studentForm = new(student, context);
-                    studentForm.Show();
-                    this.Hide();
-                }
+                MessageBox.Show("Failed to login");
             }
 
         }
