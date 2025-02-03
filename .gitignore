@@ -1,5 +1,6 @@
 examination_system/examination_system/.appSettings.json
-examination_system/.vs/
+examination_system/.vs
+examination_system/VSdoc
 examination_system/examination_system/bin/
 examination_system/examination_system/obj/
 examination_system/examination_system/appSettings.json
