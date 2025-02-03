@@ -143,5 +143,13 @@ namespace examination_system
             else
                 OpenRdlInReportBuilder(reportPath);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login login = new();
+            Hide();
+            login.Show();
+            Dispose();
+        }
     }
 }

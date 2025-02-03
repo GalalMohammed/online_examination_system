@@ -34,10 +34,7 @@ namespace examination_system
 
         }
 
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -67,6 +64,10 @@ namespace examination_system
                         this.Hide();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Invalid role");
+                }
             }
             catch (Exception)
             {
@@ -79,6 +80,7 @@ namespace examination_system
         {
 
         }
+
 
         ~Login()
         {

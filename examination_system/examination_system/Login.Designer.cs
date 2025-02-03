@@ -37,79 +37,103 @@ namespace examination_system
             emailTextBox = new TextBox();
             passwordTextBox = new TextBox();
             loginButton = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // roleComboBox
             // 
-            roleComboBox.Items.AddRange(new object[] { "Admin", "Instructor", "Student" });
-            roleComboBox.Location = new Point(300, 50);
+            roleComboBox.Items.AddRange(new object[] { "Instructor", "Student" });
+            roleComboBox.Location = new Point(252, 36);
+            roleComboBox.Margin = new Padding(3, 4, 3, 4);
             roleComboBox.Name = "roleComboBox";
-            roleComboBox.Size = new Size(158, 28);
+            roleComboBox.Size = new Size(245, 28);
             roleComboBox.TabIndex = 0;
+            roleComboBox.Text = "Chose a role";
+
             // 
             // emailLabel
             // 
-            emailLabel.BackColor = SystemColors.ActiveCaption;
-            emailLabel.Font = new System.Drawing.Font("Sans Serif Collection", 8.999999F);
-            emailLabel.Location = new Point(150, 150);
+            emailLabel.BackColor = Color.Transparent;
+            emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            emailLabel.Location = new Point(111, 126);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new Size(75, 30);
+            emailLabel.Size = new Size(86, 40);
             emailLabel.TabIndex = 1;
             emailLabel.Text = "Email";
+            emailLabel.TextAlign = ContentAlignment.MiddleCenter;
             emailLabel.Click += label1_Click;
             // 
             // passwordLabel
             // 
-            passwordLabel.BackColor = SystemColors.ActiveCaption;
-            passwordLabel.Font = new System.Drawing.Font("Sans Serif Collection", 8.999999F);
-            passwordLabel.Location = new Point(150, 200);
+            passwordLabel.BackColor = Color.Transparent;
+            passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            passwordLabel.Location = new Point(102, 194);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(75, 30);
+            passwordLabel.Size = new Size(107, 40);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Password:";
+            passwordLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // emailTextBox
             // 
-            emailTextBox.Location = new Point(260, 150);
+            emailTextBox.Location = new Point(252, 135);
+            emailTextBox.Margin = new Padding(3, 4, 3, 4);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(215, 27);
+            emailTextBox.Size = new Size(245, 27);
             emailTextBox.TabIndex = 3;
             emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(260, 200);
+            passwordTextBox.Location = new Point(252, 194);
+            passwordTextBox.Margin = new Padding(3, 4, 3, 4);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(215, 27);
+            passwordTextBox.PasswordChar = '*';
+            passwordTextBox.Size = new Size(245, 27);
             passwordTextBox.TabIndex = 4;
-            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // loginButton
             // 
             loginButton.BackColor = SystemColors.ActiveCaption;
-            loginButton.Font = new System.Drawing.Font("Sans Serif Collection", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            loginButton.Location = new Point(282, 300);
+            loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            loginButton.Location = new Point(549, 253);
+            loginButton.Margin = new Padding(3, 4, 3, 4);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(90, 40);
+            loginButton.Size = new Size(103, 53);
             loginButton.TabIndex = 5;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(127, 36);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 28);
+            label1.TabIndex = 6;
+            label1.Text = "Role";
+            // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.IndianRed;
             BackgroundImage = (System.Drawing.Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(694, 361);
+            Controls.Add(label1);
             Controls.Add(loginButton);
             Controls.Add(passwordTextBox);
             Controls.Add(emailTextBox);
             Controls.Add(passwordLabel);
             Controls.Add(emailLabel);
             Controls.Add(roleComboBox);
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(712, 408);
+            MinimumSize = new Size(712, 408);
             Name = "Login";
             Text = "Login";
             Load += Form1_Load;
@@ -125,5 +149,6 @@ namespace examination_system
         private TextBox emailTextBox;
         private TextBox passwordTextBox;
         private Button loginButton;
+        private Label label1;
     }
 }

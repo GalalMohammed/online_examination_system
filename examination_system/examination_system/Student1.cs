@@ -15,7 +15,7 @@ namespace examination_system
     public partial class Student1 : Form
     {
         Examination_SystemContext con;
-        
+
         int studentId;
         Student std;
         List<int> ExamIds;
@@ -29,7 +29,7 @@ namespace examination_system
             con = new Examination_SystemContext();
             InitializeComponent();
             studentId = id;
-            std=con.Students.FirstOrDefault(s => s.Id == id);
+            std = con.Students.FirstOrDefault(s => s.Id == id);
         }
         public Student1(Student _std, Examination_SystemContext _con)
         {
@@ -40,19 +40,19 @@ namespace examination_system
         }
         private void Student1_Load(object sender, EventArgs e)
         {
-            
-            
 
+
+            BackButton.Text = "Logout";
             var studentsList = con.Students.ToList();
-            
+
             studentId = std.Id;
             WelcomeLabel.Text = $"Welcome {std.Fname} {std.Lname}\n" +
                 $"Your ID is {std.Id}";
 
             var examsNotAnsweredByStudent = con.Students
                         .Where(s => s.Id == studentId)
-                        .SelectMany(s => s.Enrollments) 
-                        .SelectMany(e => e.Course.Exams) 
+                        .SelectMany(s => s.Enrollments)
+                        .SelectMany(e => e.Course.Exams)
                         .Where(exam => !con.StudentAnswers.Any(sa => sa.StudentId == studentId && sa.ExamId == exam.Id))
                         .Select(exam => new
                         {
@@ -61,7 +61,7 @@ namespace examination_system
 
                         })
                         .ToList();
-            
+
             ExamIds = new();
             for (int i = 0; i < examsNotAnsweredByStudent.Count; i++)
             {
@@ -73,7 +73,7 @@ namespace examination_system
                 {
                     ExamListBox.Items.Add(examsNotAnsweredByStudent[i].Name);
                 }
-                
+
                 ExamIds.Add(examsNotAnsweredByStudent[i].Id);
             }
 
@@ -88,10 +88,18 @@ namespace examination_system
             }
             int examIndex = ExamListBox.SelectedIndex;
             int ExamId = ExamIds[examIndex];
-            ExamLayout examLayout = new ExamLayout(studentId,ExamId);
+            ExamLayout examLayout = new ExamLayout(studentId, ExamId);
             Hide();
             examLayout.Show();
 
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Login login = new();
+            Hide();
+            login.Show();
+            Dispose();
         }
     }
 }

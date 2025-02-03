@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student1));
             WelcomeLabel = new Label();
-            contextMenuStrip1 = new ContextMenuStrip(components);
             ExamListBox = new ListBox();
             label2 = new Label();
             StartButton = new Button();
+            BackButton = new Button();
             SuspendLayout();
             // 
             // WelcomeLabel
@@ -42,18 +41,12 @@
             WelcomeLabel.AutoSize = true;
             WelcomeLabel.BackColor = Color.Transparent;
             WelcomeLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            WelcomeLabel.Location = new Point(169, 21);
+            WelcomeLabel.Location = new Point(158, 21);
             WelcomeLabel.Name = "WelcomeLabel";
             WelcomeLabel.Size = new Size(208, 54);
             WelcomeLabel.TabIndex = 0;
             WelcomeLabel.Text = "Welcome ";
             WelcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // ExamListBox
             // 
@@ -91,6 +84,19 @@
             StartButton.UseVisualStyleBackColor = false;
             StartButton.Click += button1_Click;
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = SystemColors.Control;
+            BackButton.FlatAppearance.BorderSize = 3;
+            BackButton.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BackButton.Location = new Point(707, 12);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(70, 44);
+            BackButton.TabIndex = 5;
+            BackButton.Text = "Logout";
+            BackButton.UseVisualStyleBackColor = false;
+            BackButton.Click += BackButton_Click;
+            // 
             // Student1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -98,6 +104,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(BackButton);
             Controls.Add(StartButton);
             Controls.Add(label2);
             Controls.Add(ExamListBox);
@@ -113,9 +120,9 @@
         #endregion
 
         private Label WelcomeLabel;
-        private ContextMenuStrip contextMenuStrip1;
         private ListBox ExamListBox;
         private Label label2;
         private Button StartButton;
+        private Button BackButton;
     }
 }

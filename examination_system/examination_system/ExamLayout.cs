@@ -40,7 +40,7 @@ namespace examination_system
         {
             var Exam = con.Exams.Where(e => e.Id == ExamID).FirstOrDefault();
             ExamNameLabel.Text = Exam.Name;
-            TimerLabel.Text = "01:10";
+            TimerLabel.Text = "10:00";
             timer.Start();
             LayoutFunc(QuestionCount);
 
@@ -162,11 +162,11 @@ namespace examination_system
         {
             
             // to prevent the form from closing
-            e.Cancel = true;
+            // e.Cancel = true;
             // Or we can implement this logic
-            //timer.Stop();
-            //if (Answers.Count == 0) { Answers.Add("No Answers"); } 
-            //submitExam();
+            timer.Stop();
+            if (Answers.Count == 0) { Answers.Add("No Answers"); } 
+            submitExam();
         }
         private async void submitExam()
         {
