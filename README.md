@@ -47,7 +47,7 @@ This is a Windows Forms application designed to facilitate examinations. It supp
 
 ## Installation and Setup
 
-This project requires an `.appsettings.json` file for configuration.
+This project requires an `.appSettings.json` file for configuration.
 
 ### Steps to Set Up
 
@@ -59,7 +59,7 @@ This project requires an `.appsettings.json` file for configuration.
 2. **Open the Project:**
    - Open the solution file (`.sln`) in Visual Studio.
 
-3. Copy `appsettings.example.json` and rename it to `.appsettings.json`.
+3. Copy `appSettings.example.json` and rename it to `.appSettings.json`.
 
 4. **Configure the Database and the pathes:**
    - Update the connection string in `.appSettings.json` or your configuration file.
