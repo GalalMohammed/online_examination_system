@@ -319,6 +319,8 @@
             Controls.Add(examGenerationLabel);
             DoubleBuffered = true;
             Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(932, 647);
+            MinimumSize = new Size(932, 647);
             Name = "InstructorForm";
             Text = "InstructorForm";
             Load += InstructorForm_Load;
